@@ -1,5 +1,6 @@
 # adding files to ignore
 /data
+config.py
 
 # Object file
 *.o
