@@ -11,13 +11,15 @@ from config import db_password
 #%%
 # de-duplicate; primary key is DPN
 
+# load x/a-rev into dataframe
+
 # find number of dupes
 
 # compare
 
 # drop
 
-
+# future, build function to locate data sources
 #%%
 # find nulls; should be none in DPN, PC, PT, CPC, CPT & GCS
 
