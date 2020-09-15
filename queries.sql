@@ -9,25 +9,34 @@ CREATE TABLE GNS(
     );
 
 CREATE TABLE arev (
-    -- DPN VARCHAR(5) NOT NULL, input file includes non DPN & non parts
-    DPN TEXT NOT NULL,
+    DPN VARCHAR(5) NOT NULL,
+--     DPN TEXT NOT NULL,
     Descrip TEXT NOT NULL,
     PC TEXT NOT NULL,
     PT TEXT NOT NULL,
     Phase TEXT NOT NULL,
+    Create_Date DATE,
+    GCS TEXT,
+    CPC TEXT,
+    CPT TEXT,
     UNIQUE (DPN)
     -- FOREIGN KEY (PT) REFERENCES GNS (PT)
 );
 
 CREATE TABLE xrev (
-    -- DPN VARCHAR(5) NOT NULL, input file includes non DPN & non parts
-    DPN TEXT NOT NULL,
+    DPN VARCHAR(5) NOT NULL, 
+--     DPN TEXT NOT NULL,
     Descrip TEXT,
     PC TEXT,
     PT TEXT,
     Phase TEXT NOT NULL,
     UNIQUE (DPN),
-    FOREIGN KEY (PT) REFERENCES GNS (PT)
+    Create_Date DATE,
+    GCS TEXT,
+    CPC TEXT,
+    CPT TEXT,
+    -- FOREIGN KEY (PT) REFERENCES GNS (PT),
+    UNIQUE (DPN)
 );
 
 SELECT * FROM GNS;
