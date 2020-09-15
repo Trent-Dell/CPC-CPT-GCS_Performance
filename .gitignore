@@ -1,3 +1,6 @@
+# adding files to ignore
+/data
+
 # Object file
 *.o
 
