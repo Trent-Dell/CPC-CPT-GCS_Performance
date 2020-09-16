@@ -2,6 +2,7 @@
 
 #%%
 import os
+import csv
 import matplotlib
 import numpy as np
 import pandas as pd
@@ -21,17 +22,108 @@ df_x = pd.read_csv(xrev_load, sep=";")
 
 #%%
 # display data in DF
-# df_a
-df_x
+df_a
+# df_x
 
 #%%
-# find number of dupes
+# data types
+df_x.dtypes
+df_a.dtypes
+
+#%%
+# finding empty values
+xNotNull = df_x.notnull().sum()
+xIsNull = df_x.isnull().sum()
+print(
+    f"{xNotNull}\n\n"
+    f"{xIsNull}"
+    )
+#%%
+# finding nulls
+aNotNull = df_a.notnull().sum()
+aIsNull = df_a.isnull().sum()
+# aNulls = (
+#     f"Here are the filled fields: {aNotNull:,}\n"
+#     f"Here are the empty fields: {aIsNull}\n"
+#     )
+# print(aNulls)
+
+print(
+    f"{aNotNull}\n\n"
+    f"{aIsNull}"
+)
+
+#%%
+# if null, load into new dataframe and save to csv
+GCS_null = df_x[df_x['GCS'].isnull()]
+GCS_null
+
+CPC_null = df_x[df_x['COMBINED_PC'].isnull()]
+CPC_null
+
+CPT_null = df_x[df_x['COMBINED_PT'].isnull()]
+CPT_null
+
+#%%
+GCS_null = df_a[df_a['GCS'].isnull()]
+GCS_null
+
+CPC_null = df_a[df_a['COMBINED_PC'].isnull()]
+CPC_null
+
+CPT_null = df_a[df_a['COMBINED_PT'].isnull()]
+CPT_null
+#%%
+# X-rev dupes
 # df_x.duplicated(subset=['ITEM_NUMBER'])
-# df_a.duplicated(subset=['ITEM_NUMBER'])
 
+# Select duplicate rows except first occurrence based on all columns
 dup_xrevDF = df_x[df_x.duplicated(['ITEM_NUMBER'])]
-print(dup_xrevDF)
+dup_xrevDF
 
+# duplicateRowsDFX = df_x[df_x.duplicated(['ITEM_NUMBER'])]
+# duplicateRowsDFX.shape
+# duplicateRowsDFX
+
+#%%
+# A-rev dupes
+dup_arevDF = df_a[df_a.duplicated(['ITEM_NUMBER'])]
+dup_arevDF
+
+# duplicateRowsDFA = df_a[df_a.duplicated(['ITEM_NUMBER'])]
+# duplicateRowsDFA.shape
+
+#%%
+# compare DFs
+xDup_size = len(dup_xrevDF)
+aDup_size= len(dup_arevDF)
+
+uniqueDPN = (
+    f"The X-rev data file has {len(df_x):,} rows.\n"
+    f"Found this many X-rev duplicates: {xDup_size}\n"
+    f"The A-rev data file has {len(df_a):,} rows.\n"
+    f"Found this many A-rev duplicates: {aDup_size}\n"
+    )
+print(uniqueDPN)
+
+# with open(file_to_save, "w") as textFile:
+#     textFile.write(election_results)  #save the final vote count to the text file.
+
+#%%
+with open(file_to_save, "w") as textFile:
+
+    # Write some data to the file and screen
+    # Print the final vote count to the terminal
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    textFile.write(election_results)  #save the final vote count to the text file.
+
+    print(f'\nCounty Votes:\n',end="") 
+    textFile.write(f'\nCounty Votes:\n')
 
 #%%
 # drop
