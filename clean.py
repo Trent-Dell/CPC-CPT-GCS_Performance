@@ -10,9 +10,13 @@ from config import db_password
 
 #%%
 # de-duplicate; primary key is DPN
-
+# load data files
+arev_load = "data\parts_arev_na.txt"
+xrev_load = "data\parts_xrev_na.txt"
+#%%
 # load x/a-rev into dataframe
-
+df_a = pd.read_csv(arev_load, sep=';')
+df_x = pd.read_csv(xrev_load, sep=";")
 # find number of dupes
 
 # compare
