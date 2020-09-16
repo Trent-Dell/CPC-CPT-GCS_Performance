@@ -42,11 +42,6 @@ print(
 # finding nulls
 aNotNull = df_a.notnull().sum()
 aIsNull = df_a.isnull().sum()
-# aNulls = (
-#     f"Here are the filled fields: {aNotNull:,}\n"
-#     f"Here are the empty fields: {aIsNull}\n"
-#     )
-# print(aNulls)
 
 print(
     f"{aNotNull}\n\n"
@@ -55,24 +50,33 @@ print(
 
 #%%
 # if null, load into new dataframe and save to csv
-GCS_null = df_x[df_x['GCS'].isnull()]
-GCS_null
+xGCS_null = df_x[df_x['GCS'].isnull()]
+xGCS_null
 
-CPC_null = df_x[df_x['COMBINED_PC'].isnull()]
-CPC_null
+xCPC_null = df_x[df_x['COMBINED_PC'].isnull()]
+xCPC_null
 
-CPT_null = df_x[df_x['COMBINED_PT'].isnull()]
-CPT_null
+xCPT_null = df_x[df_x['COMBINED_PT'].isnull()]
+xCPT_null
 
 #%%
-GCS_null = df_a[df_a['GCS'].isnull()]
-GCS_null
+aGCS_null = df_a[df_a['GCS'].isnull()]
+aGCS_null
 
-CPC_null = df_a[df_a['COMBINED_PC'].isnull()]
-CPC_null
+aCPC_null = df_a[df_a['COMBINED_PC'].isnull()]
+aCPC_null
 
-CPT_null = df_a[df_a['COMBINED_PT'].isnull()]
-CPT_null
+aCPT_null = df_a[df_a['COMBINED_PT'].isnull()]
+aCPT_null
+
+print(aCPC_null,aCPT_null)
+
+#%%
+# aCPT_null
+# aCPC_null
+aGCS_null
+
+aGCS_null.to_csv('data\aGCS_Nulls.csv')
 #%%
 # X-rev dupes
 # df_x.duplicated(subset=['ITEM_NUMBER'])
@@ -84,6 +88,7 @@ dup_xrevDF
 # duplicateRowsDFX = df_x[df_x.duplicated(['ITEM_NUMBER'])]
 # duplicateRowsDFX.shape
 # duplicateRowsDFX
+dup_xrevDF.to_csv('data\Xrev_Dupes.csv')
 
 #%%
 # A-rev dupes
@@ -92,6 +97,7 @@ dup_arevDF
 
 # duplicateRowsDFA = df_a[df_a.duplicated(['ITEM_NUMBER'])]
 # duplicateRowsDFA.shape
+dup_arevDF.to_csv('data\Arev_Dupes.csv')
 
 #%%
 # compare DFs
