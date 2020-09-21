@@ -122,7 +122,9 @@ dedup_xRev = df_x[df_x.duplicated(subset=['ITEM_NUMBER'], keep='first')]
 dedup_xRev
 
 # future, build function to locate data sources
-
+#%%
+is_PT =  df_a[df_a['PART_TYPE']== "Customer Kit"]
+print(is_PT.head())
 #%%
 # find nulls; should be none in DPN, PC, PT, CPC, CPT & GCS
 
