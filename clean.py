@@ -123,8 +123,10 @@ dedup_xRev
 
 # future, build function to locate data sources
 #%%
-is_PT =  df_a[df_a['PART_TYPE']== "Customer Kit"]
+# Slicing
+is_PT =  df_a[df_a['PART_TYPE']== "SI- Purchased RDR DBOX"]
 print(is_PT.head())
+
 #%%
 # find nulls; should be none in DPN, PC, PT, CPC, CPT & GCS
 
@@ -132,7 +134,6 @@ print(is_PT.head())
 
 # use this later for findind N/A in attribute fields
     ## get list of values in each column
-
 #%%
 # Load into SQL DB
 db_string = f"postgres://postgres:{db_password}@127.0.0.1:51734/<-PATH->"
