@@ -116,44 +116,20 @@ print(uniqueDPN)
 #     textFile.write(election_results)  #save the final vote count to the text file.
 
 #%%
-with open(file_to_save, "w") as textFile:
-
-    # Write some data to the file and screen
-    # Print the final vote count to the terminal
-    election_results = (
-        f"\nElection Results\n"
-        f"-------------------------\n"
-        f"Total Votes: {total_votes:,}\n"
-        f"-------------------------\n")
-    print(election_results, end="")
-    textFile.write(election_results)  #save the final vote count to the text file.
-
-    print(f'\nCounty Votes:\n',end="") 
-    textFile.write(f'\nCounty Votes:\n')
-
-#%%
 # drop
 dedup_xRev = df_x[df_x.duplicated(subset=['ITEM_NUMBER'], keep='first')]
 # len(dedup_xRev)
 dedup_xRev
 
-# write to csv
-
 # future, build function to locate data sources
+
 #%%
 # find nulls; should be none in DPN, PC, PT, CPC, CPT & GCS
 
 # drop nulls
 
-
 # use this later for findind N/A in attribute fields
     ## get list of values in each column
-
-#%%
-# next???
-
-#%%
-
 
 #%%
 # Load into SQL DB

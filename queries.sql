@@ -39,6 +39,8 @@ CREATE TABLE xrev (
     UNIQUE (DPN)
 );
 
+copy <table_name>  from '/source_file.csv' delimiter ';' TXT HEADER ;
+
 SELECT * FROM GNS;
 
 -- Data cleanse
