@@ -47,9 +47,6 @@ print(
     f"{aNotNull}\n\n"
     f"{aIsNull}"
 )
-#%%
-# produce list of PT in both reports
-# compare to GNS PT list
 
 #%%
 # if null, load into new dataframe and save to csv
@@ -129,6 +126,10 @@ dedup_xRev
 # Slicing
 is_PT =  df_a[df_a['PART_TYPE']== "SI- Purchased RDR DBOX"]
 print(is_PT.head())
+
+#%%
+# produce list of PT in both reports
+# compare to GNS PT list
 
 #%%
 # find nulls; should be none in DPN, PC, PT, CPC, CPT & GCS
