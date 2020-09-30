@@ -47,6 +47,9 @@ print(
     f"{aNotNull}\n\n"
     f"{aIsNull}"
 )
+#%%
+# produce list of PT in both reports
+# compare to GNS PT list
 
 #%%
 # if null, load into new dataframe and save to csv
