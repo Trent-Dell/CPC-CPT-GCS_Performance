@@ -126,6 +126,13 @@ dedup_xRev
 # Slicing
 is_PT =  df_a[df_a['PART_TYPE']== "SI- Purchased RDR DBOX"]
 print(is_PT.head())
+#%%
+# Slicing
+is_PT1 =  df_a[df_a['PART_TYPE']== "Base,Installation (Buy Item)"]
+print(is_PT.head())
+#%%
+len(is_PT1)
+is_PT1.to_csv("data\\base_installBuyItem.csv")
 
 #%%
 # produce list of PT in both reports
