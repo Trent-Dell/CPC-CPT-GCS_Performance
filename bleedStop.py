@@ -1,5 +1,6 @@
-# this cleans Oracle DB data
-
+"""
+this cleans Oracle DB data
+"""
 #%%
 import os
 import csv
